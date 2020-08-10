@@ -11,7 +11,7 @@ We can only feature one awesome programmer at a time.
 Find comments below to help you along.
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // Use this variable ONLY to initialize a slice of state!
 // There is something in the JSX right now breaking this rule.
@@ -27,12 +27,15 @@ const listOfAwesome = [
 export default function Programmers() {
   // We'll have to use the state hook twice, as we need two slices of state.
   // The programmers on the one hand, and the id of the featured programmer on the other.
+  const [name, setName] = useState(listOfAwesome[0]['name'])
+  const [id, setId] = useState(listOfAwesome[0]['id'])
 
   const getNameOfFeatured = () => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
     // Using the currently celebrated id, find inside the programmers slice of state
     // the _name_ of the currently celebrated programmer, and return it.
+    
   };
 
   const style = {
@@ -51,7 +54,7 @@ export default function Programmers() {
           we could never add or edit programmers in the future. The list would be a static thing. ;)" */
           listOfAwesome.map(dev =>
             <div key={dev.id}>
-              {dev.name} <button onClick={() => { /* set the featured id passing dev.id */ }}>Feature</button>
+              {dev.name} <button onClick={() => {setId(dev.id) /* set the featured id passing dev.id */ }}>Feature</button>
             </div>
           )
         }
