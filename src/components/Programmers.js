@@ -30,6 +30,8 @@ export default function Programmers() {
   const [arr] = useState(listOfAwesome)
   const [id, setId] = useState(null)
 
+  console.log(arr[{1}]['name'])
+
   const getNameOfFeatured = () => {
     // This is not an event handler but a helper function. See its usage below.
     // It's going to need information from both slices of state!
@@ -37,6 +39,8 @@ export default function Programmers() {
     // the _name_ of the currently celebrated programmer, and return it.
     return arr[`${id - 1}`]['name']    
   };
+
+
 
   const style = {
     fontSize: '1.5em',
